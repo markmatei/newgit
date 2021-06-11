@@ -1,0 +1,41 @@
+---
+
+- name: general Config
+
+  hosts: all
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Add Banner:
+
+    ios_banner:
+      banner: login
+      text:
+        Welcome to my network automation
+        state: present
+
+  - name: Disable DNS lookup
+
+    ios_system:
+      lookup_enabled: false
+
+- name: Router config
+
+  hosts: Routers
+
+  gather_facts: no
+
+  tasks:
+
+  - name: Configure OSPF
+
+  ios_config:
+    line:
+
+      -network 0.0.0.0 0.0.0.0 area 0
+
+    parents: router ospf 77
+
+  
