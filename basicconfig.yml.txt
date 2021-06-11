@@ -1,0 +1,12 @@
+---
+name:global config
+gather_facts=no
+hosts:switches
+
+tasks:
+-name: global setting
+ios_config:
+provider:"{{cli}}"
+lines:
+-"vlan 1,2,3,4,5"
+-"ip dhcp snooping vlan 1, 2"

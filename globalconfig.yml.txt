@@ -1,0 +1,23 @@
+---
+-name:general config
+hosts:routers
+gather_facts:no
+connection:local
+
+tasks:
+ -name:show run
+  ios_command:
+      commands:
+         -show run
+      hosts:"{{ansible_routers}}"
+      username:markov
+      password:passw1234
+      register:config
+ 
+-name:save output to /etc/ansible/backups
+copy:
+  content:"{{config.standout[0]}}"
+  dest:"/etc/ansible/backups/show-run_{{invertory_hostname}}.txt"
+
+
+  

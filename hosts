@@ -1,0 +1,17 @@
+[Routers]
+192.168.1.1
+192.168.2.2
+
+[Switches]
+192.168.3.2
+
+[mydevices:children]
+Routers
+Switches
+
+[mydevices:vars]
+
+ansible_connection=local
+
+ansible_user=george
+ansible_password=george
