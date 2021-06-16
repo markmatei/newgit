@@ -1,12 +1,12 @@
 ---
--name: general config
-hosts: all
-gather_facts: no
-connection: local
+- name: general config
+  hosts: all
+  gather_facts: no
+  connection: local
 
-tasks:
-- name: show run
-  ios_command:
+  tasks:
+  - name: show run
+    ios_command:
       commands:
          -show run
       hosts: "{{ansible_host}}"
@@ -14,7 +14,7 @@ tasks:
       password: passwd
       register: config
 
--name: save output to /var/lib/awx/projects/network_automation_project
- copy:
-  content: "{{config.standout[0]}}"
-  dest: "/var/lib/awx/projects/network_automation_project/running_{{invertory_hostname}}.txt"
+  -name: save output to /var/lib/awx/projects/network_automation_project
+   copy:
+    content: "{{config.standout[0]}}"
+   dest: "/var/lib/awx/projects/network_automation_project/running_{{invertory_hostname}}.txt"
