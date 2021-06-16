@@ -111,7 +111,7 @@
    - name: ASSERT THAT THE IOS VERSION IS CORRECT
 
      vars:
-       upgrade_ios_version: 12.2(55)SE12
+       upgrade_ios_version: 15.7(3)M8
 
      assert:
        that:
