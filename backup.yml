@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: no
   connection: local
-
+  
   tasks:
   - name: show run
     ios_command:
