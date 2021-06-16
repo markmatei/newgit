@@ -1,6 +1,6 @@
 ---
 -name:general config
-hosts:TestR1
+hosts:all
 gather_facts:no
 connection:local
 
@@ -14,7 +14,7 @@ tasks:
       password:passwd
       register:config
 
--name:save output to /etc/ansible/Network-Programmability/Backups
-copy:
+-name:save output to /var/lib/awx/projects/network_automation_project
+ copy:
   content:"{{config.standout[0]}}"
-  dest:"/etc/ansible/Network-Programmability/Backups/running_{{invertory_hostname}}.txt"
+  dest:"/var/lib/awx/projects/network_automation_project/running_{{invertory_hostname}}.txt"
